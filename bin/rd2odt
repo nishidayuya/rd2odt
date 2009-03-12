@@ -1,0 +1,4 @@
+#! /usr/bin/env ruby
+
+require "rd2odt"
+RD2ODT.main
