@@ -1,0 +1,27 @@
+= version 0.1.0 2009-03-XX
+
+== new features
+
+* No '=begin' no '=end' document support.
+
+* Installation by RubyGems support.
+
+== bug fixes
+
+* NO! (or not shown?)
+
+= version 0.0.0 2009-02-22
+
+* First release of rd2odt.
+
+= 2007-07-26 22:45:23 +0900
+
+* Planning!
+
+# $Id$
+# 
+# Editor settings
+# - Emacs -
+# local variables:
+# mode: RD
+# end:
