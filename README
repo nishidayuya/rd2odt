@@ -1,0 +1,36 @@
+= rd2odt
+
+rd2odt is a converter for RD (Ruby Document) to OpenDocument.
+
+= Install
+
+  % (sudo) ruby setup.rb
+
+= Documentation
+
+
+
+= License
+
+The X11 License.
+See more LICENSE file.
+
+= Project Home
+
+http://rubyforge.org/projects/rd2odt
+
+== Download (tarballs and gems)
+
+
+
+= Author
+
+Yuya.Nishida. <yuya at@at j96 dot.dot org>
+
+# $Id$
+# 
+# Editor settings
+# - Emacs -
+# local variables:
+# mode: RD
+# end:
