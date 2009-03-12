@@ -79,19 +79,12 @@ module RD2ODT
   def self.treat_input(lines)
     result = lines.dup
 
-    have_begin = lines.any? { |line|
-      /^=begin\b/.match(line)
-    }
-    if !have_begin
+    if lines.grep(/^=begin\b/).empty? &&
+        lines.grep(/^=end\b/).empty?
       result.unshift("=begin\n")
-    end
 
-    have_end = lines.any? { |line|
-      /^=end\b/.match(line)
-    }
-    if !have_end
-      if !(/\n\z/ === result.last)
-        result.last.concat("\n")
+      if !(/\n\z/ === result[-1])
+        result[-1] = result[-1] + "\n"
       end
       result.push("=end\n")
     end

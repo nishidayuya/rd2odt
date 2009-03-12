@@ -111,6 +111,24 @@ EXPECTED
     actual_2 = str_to_treat_input_ary(actual_str.chomp)
     RD2ODT.treat_input(actual_2).should == expected
   end
+
+  it "does not add '=begin' to first line if it is exist." do
+    ary = str_to_treat_input_ary(<<EOF)
+foo
+=begin
+bar
+EOF
+    RD2ODT.treat_input(ary.dup).should == ary.dup
+  end
+
+  it "does not add '=end' to last line if it is exist." do
+    ary = str_to_treat_input_ary(<<EOF)
+foo
+=end
+bar
+EOF
+    RD2ODT.treat_input(ary.dup).should == ary.dup
+  end
 end
 
 describe RD2ODT::RD2ODTVisitor, "apply_to_DocumentElement" do
