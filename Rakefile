@@ -6,6 +6,7 @@ task :default => [:spec, :init_gem_spec, :package]
 
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["test/**/*-spec.rb"]
+  t.libs << "lib"
 end
 
 task :init_gem_spec do
