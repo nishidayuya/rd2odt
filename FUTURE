@@ -1,0 +1,63 @@
+= The future of rd2odt
+
+This note is drawn the future of rd2odt.
+It has a dream, I think.
+
+== Installation by RubyGems
+
+  % (sudo) gem install rd2odt
+
+== Awesome templates
+
+I have few sense.
+PLEASE HELP ME!
+
+== Full RDtool support
+
+* Inline element support.
+    ((*strong*))
+    ((-footnote-))
+    ((<hyperlink|URL:http://www.j96.org/~yuya/>))
+    (({program code (fixed font?)}))
+    ((|program variable (italic)|))
+    ((%keyboard input%))
+    ((:term description:))
+    ((<label>))
+    (('verbatim'))
+
+* term description
+    : term
+      description
+
+== About OpenDocument format
+
+* Inserts figure support as directly.
+    <<< my-family.png
+    (using default figure style)
+* Inserts OLE objects as directly.
+    <<< population-graph.ods
+    (using default OLE object style)
+* Inserts table of contents support.
+    <<< preamble-with-toc.odt
+* Reference support.
+    ((<reference to figure|ref:figure-1>))
+    ((<reference to section|ref:section-1>))
+    ((<reference to table|ref:table-1>))
+* Online replacing.
+  <STILL PLANNING>
+    % rd2odt --replace-string=@author@:'Yuya.Nishida.' nuclear-report.rd
+* Online changing style.
+  <STILL PLANNING>
+    % rd2odt --change-style=headline-1:awesome-headline-1 concert-of-ACIDMAN.rd
+
+== Internal implementation
+
+* do not use Wabisabi format XML.
+
+# $Id$
+# 
+# Editor settings
+# - Emacs -
+# local variables:
+# mode: RD
+# end:
