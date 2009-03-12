@@ -90,6 +90,9 @@ module RD2ODT
       /^=end\b/.match(line)
     }
     if !have_end
+      if !(/\n\z/ === result.last)
+        result.last.concat("\n")
+      end
       result.push("=end\n")
     end
 

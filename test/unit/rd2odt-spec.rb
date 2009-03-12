@@ -108,8 +108,8 @@ EXPECTED
     actual_1 = str_to_treat_input_ary(actual_str)
     RD2ODT.treat_input(actual_1).should == expected
 
-    # actual_2 = str_to_treat_input_ary(actual_str.chomp)
-    # RD2ODT.treat_input(actual_2).should == expected
+    actual_2 = str_to_treat_input_ary(actual_str.chomp)
+    RD2ODT.treat_input(actual_2).should == expected
   end
 end
 
