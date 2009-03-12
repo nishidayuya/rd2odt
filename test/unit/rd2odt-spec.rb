@@ -78,6 +78,41 @@ EOF
   end
 end
 
+def str_to_treat_input_ary(s)
+  ary = s.split("\n").map { |l|
+    l + "\n"
+  }
+
+  # last line does not have "\n" case.
+  if !/\n\z/.match(s)
+    ary.last.chomp!
+  end
+
+  return ary
+end
+
+describe RD2ODT, "treat_input" do
+  it "adds '=begin' to first line and adds '=end' to last line if both lines is
+  not exist." do
+    actual_str = <<ACTUAL
+foo
+bar
+ACTUAL
+    expected = str_to_treat_input_ary(<<EXPECTED)
+=begin
+foo
+bar
+=end
+EXPECTED
+
+    actual_1 = str_to_treat_input_ary(actual_str)
+    RD2ODT.treat_input(actual_1).should == expected
+
+    # actual_2 = str_to_treat_input_ary(actual_str.chomp)
+    # RD2ODT.treat_input(actual_2).should == expected
+  end
+end
+
 describe RD2ODT::RD2ODTVisitor, "apply_to_DocumentElement" do
   before do
     @visitor = RD2ODT::RD2ODTVisitor.new

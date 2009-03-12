@@ -65,7 +65,8 @@ module RD2ODT
     puts("options: " + options.inspect) if $DEBUG
     puts("include_paths: " + include_paths.inspect) if $DEBUG
 
-    tree = RD::RDTree.new(File.read(@@input_path), include_paths, nil)
+    input_lines = treat_input(File.readlines(@@input_path))
+    tree = RD::RDTree.new(input_lines, include_paths, nil)
     tree.parse
     visitor = RD2ODTVisitor.new
     doc = visitor.visit(tree)
@@ -74,6 +75,26 @@ module RD2ODT
     e.process
   end
   module_function :main
+
+  def self.treat_input(lines)
+    result = lines.dup
+
+    have_begin = lines.any? { |line|
+      /^=begin\b/.match(line)
+    }
+    if !have_begin
+      result.unshift("=begin\n")
+    end
+
+    have_end = lines.any? { |line|
+      /^=end\b/.match(line)
+    }
+    if !have_end
+      result.push("=end\n")
+    end
+
+    return result
+  end
 
   def self.create_odt(visitor, doc, output_path, template_path)
     current_path = Dir.pwd
