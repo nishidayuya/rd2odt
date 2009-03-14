@@ -69,7 +69,8 @@ http://rubyforge.org/projects/rd2odt/
 
 = Author
 
-Yuya.Nishida. <yuya at@at j96 dot.dot org>
+  Yuya.Nishida. <yuya at@at j96 dot.dot org>
+                     ~~~ ~~~   ~~~~ ~~~~     <== remove it.
 
 # Editor settings
 # - Emacs -
