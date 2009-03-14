@@ -1,0 +1,12 @@
+*.o
+*.lo
+*.la
+.*~
+*~
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+tags
+
+InstalledFiles
