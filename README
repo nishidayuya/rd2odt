@@ -12,8 +12,7 @@ rd2odt is a converter for RD (Ruby Document) to OpenDocument.
   http://rubyforge.org/projects/rdtool/
 * rubyzip
   http://rubyforge.org/projects/rubyzip/
-  
-  If you have RubyGems:
+  If you have RubyGems, you can install rubyzip with RubyGems:
     % (sudo) gem install rubyzip
 
 Do you have Debian/GNU Linux?
@@ -35,6 +34,9 @@ These are installable with APT!
 (1) Let's try to convert sample RD to OpenDocument.
       % cd rd2odt-<version number>
       % rd2odt doc/sample.rd.ja
+(2) You'll get "doc/sample.rd.ja.odt" (OpenDocument Text).
+    Please open it by Office Suites (e.g: OpenOffice.org).
+      % ooffice doc/sample.rd.ja.odt
 
 == 2nd: converting your document
 
@@ -66,7 +68,7 @@ http://rubyforge.org/projects/rd2odt/
 = Author
 
   Yuya.Nishida. <yuya at@at j96 dot.dot org>
-                     ~~~ ~~~   ~~~~ ~~~~     <== remove it.
+                     ~~~ ~~~   ~~~~ ~~~~     <== remove it when email me.
 
 # Editor settings
 # - Emacs -
