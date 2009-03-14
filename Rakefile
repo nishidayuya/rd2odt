@@ -40,3 +40,11 @@ EOF
     pkg.need_tar_gz = true
   end
 end
+
+# $Id$
+# 
+# Editor settings
+# - Emacs -
+# local variables:
+# mode: Ruby
+# end:
