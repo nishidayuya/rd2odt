@@ -54,10 +54,6 @@ These are installable with APT!
 (2) And retry convert.
       % rd2odt doc/sample.rd.ja
 
-= Documentation
-
-
-
 = License
 
 The X11 License.
