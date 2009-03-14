@@ -41,8 +41,6 @@ EOF
   end
 end
 
-# $Id$
-# 
 # Editor settings
 # - Emacs -
 # local variables:
