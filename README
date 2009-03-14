@@ -4,7 +4,55 @@ rd2odt is a converter for RD (Ruby Document) to OpenDocument.
 
 = Install
 
-  % (sudo) ruby setup.rb
+== Requirements
+
+* The Ruby interpreter :>
+  http://www.ruby-lang.org/
+* RDtool
+  http://rubyforge.org/projects/rdtool/
+* rubyzip
+  http://rubyforge.org/projects/rubyzip/
+  
+  If you have RubyGems:
+    % (sudo) gem install rubyzip
+
+Do you have Debian/GNU Linux?
+These are installable with APT!
+  % (sudo) apt-get install rdtool libzip-ruby1.8
+
+== Install rd2odt
+
+(1) Download newest tarballs and extract it.
+    http://rubyforge.org/projects/rd2odt/
+(2) Run setup.rb and install it.
+      % cd rd2odt-<version number>
+      % (sudo) ruby setup.rb
+
+= Tutorials
+
+== 1st: converting the sample
+
+(1) Let's try to convert sample RD to OpenDocument.
+      % cd rd2odt-<version number>
+      % rd2odt doc/sample.rd.ja
+
+== 2nd: converting your document
+
+(1) If you have a RD document, enjoy converting!
+      % cp path-to-rd2odt/doc/sample.rd.ja.ott some-your-document.rd.ott
+      % rd2odt some-your-document.rd
+    Or,
+      % rd2odt --template=path-to-rd2odt/doc/sample.rd.ja.ott \
+               some-your-document.rd
+
+== 3rd: changing the style
+
+(1) Do you want change the style?
+    Okey! You can edit its style by OpenOffice.org Writer.
+      % ooffice doc/sample.rd.ja.ott
+
+(2) And retry convert.
+      % rd2odt doc/sample.rd.ja
 
 = Documentation
 
@@ -15,13 +63,9 @@ rd2odt is a converter for RD (Ruby Document) to OpenDocument.
 The X11 License.
 See more LICENSE file.
 
-= Project Home
+= Project home
 
-http://rubyforge.org/projects/rd2odt
-
-== Download (tarballs and gems)
-
-
+http://rubyforge.org/projects/rd2odt/
 
 = Author
 
