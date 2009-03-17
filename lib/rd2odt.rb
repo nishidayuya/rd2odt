@@ -446,13 +446,14 @@ module RD2ODT
       (1) dara
 =end
     def apply_to_list_item(sub_contents)
-      additional_attributes = {}
+      result = []
+      result << :text__list_item
       if across_headline
         self.across_headline = false
-        additional_attributes[:text__start_value] = "1"
+        result << {:text__start_value => "1"}
       end
-
-      return [:text__list_item, additional_attributes, *sub_contents]
+      result.concat(sub_contents)
+      return result
     end
     private :apply_to_list_item
 
