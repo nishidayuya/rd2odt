@@ -406,6 +406,7 @@ module RD2ODT
 
     def apply_to_Headline(element, title)
       self.across_headline = true
+      self.across_item_list = true
       level = element.level
       result = create_headline_result(title, level, level)
       result[1][:text__style_name] = "Numbering_20_2"
@@ -458,7 +459,7 @@ module RD2ODT
       result << :text__list_item
       if across_headline
         self.across_headline = false
-        result << {:text__start_value => "1"}
+        # result << {:text__start_value => "1"}
       end
       result.concat(sub_contents)
       return result
