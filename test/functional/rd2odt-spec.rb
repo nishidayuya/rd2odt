@@ -101,6 +101,86 @@ describe RD2ODT::RD2ODTVisitor, "" do
     @visitor = RD2ODT::RD2ODTVisitor.new
   end
 
+  it "supports EnumList over Headline." do
+    result = @visitor.visit(create_rd_tree("enum-list-over-headline.rd"))
+    check_document_content(result) do |office_text|
+      office_text[0].should == [:text__list,
+                                {
+                                  :text__continue_numbering => "true",
+                                  :text__style_name => "Numbering_20_1",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                ]
+                               ]
+      office_text[1].should == [:text__list,
+                                {
+                                  :text__style_name => "Numbering_20_2",
+                                  :text__continue_numbering => "true",
+                                },
+                                [:text__list_item,
+                                 [:text__list,
+                                  {:text__continue_numbering => "true"},
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Heading_20_2"},
+                                    "Headline 2",
+                                   ]
+                                  ]
+                                 ],
+                                ]
+                               ]
+      office_text[2].should == [:text__list,
+                                {:text__style_name => "Numbering_20_1"},
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                ]
+                               ]
+    end
+  end
+
+  it "supports EnumList over ItemList." do
+    result = @visitor.visit(create_rd_tree("enum-list-over-item-list.rd"))
+    check_document_content(result) do |office_text|
+      office_text[0].should == [:text__list,
+                                {
+                                  :text__continue_numbering => "true",
+                                  :text__style_name => "Numbering_20_1",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                ]
+                               ]
+      office_text[1].should == [:text__list,
+                                {:text__style_name => "List_20_1"},
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "ItemList 1",
+                                 ],
+                                ]
+                               ]
+      office_text[2].should == [:text__list,
+                                {:text__style_name => "Numbering_20_1"},
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                ]
+                               ]
+    end
+  end
+
   it "process multi-paragraph.rd" do
     result = @visitor.visit(create_rd_tree("multi-paragraph.rd"))
     check_document_content(result) do |office_text|
