@@ -146,7 +146,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
   end
 
   it "supports EnumList over ItemList." do
-    result = @visitor.visit(create_rd_tree("list-simple.rd"))
+    result = @visitor.visit(create_rd_tree("enum-list-over-item-list.rd"))
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
