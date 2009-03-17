@@ -266,9 +266,6 @@ module RD2ODT
     attr_accessor :inner_objects
 
     # 
-    attr_accessor :across_headline
-
-    # 
     attr_accessor :across_item_list
 
     def initialize(*args)
@@ -405,7 +402,6 @@ module RD2ODT
     private :create_headline_result
 
     def apply_to_Headline(element, title)
-      self.across_headline = true
       self.across_item_list = true
       level = element.level
       result = create_headline_result(title, level, level)
