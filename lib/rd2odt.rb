@@ -441,15 +441,6 @@ module RD2ODT
       return apply_to_list_item(sub_contents)
     end
 
-=begin
-以下のときにbazは番号付け再開されない．
-  (1) foo
-  
-  == bar
-  
-  (1) baz
-      (1) dara
-=end
     def apply_to_list_item(sub_contents)
       return [:text__list_item, *sub_contents]
     end
