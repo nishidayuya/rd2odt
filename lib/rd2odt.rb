@@ -268,6 +268,9 @@ module RD2ODT
     # 
     attr_accessor :across_headline
 
+    # 
+    attr_accessor :across_item_list
+
     def initialize(*args)
       super
 
@@ -414,12 +417,17 @@ module RD2ODT
     end
 
     def apply_to_EnumList(element, items)
-      return apply_to_list(items,
-                           :text__style_name => "Numbering_20_1",
-                           :text__continue_numbering => "true")
+      additional_attributes = {:text__style_name => "Numbering_20_1"}
+      if across_item_list
+        self.across_item_list = false
+      else
+        additional_attributes[:text__continue_numbering] = "true"
+      end
+      return apply_to_list(items, additional_attributes)
     end
 
     def apply_to_ItemList(element, items)
+      self.across_item_list = true
       return apply_to_list(items, :text__style_name => "List_20_1")
     end
 

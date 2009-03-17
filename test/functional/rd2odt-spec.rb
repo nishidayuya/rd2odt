@@ -101,7 +101,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     @visitor = RD2ODT::RD2ODTVisitor.new
   end
 
-  it "supports the EnumList over ItemList." do
+  it "supports EnumList over ItemList." do
     result = @visitor.visit(create_rd_tree("list-simple.rd"))
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
@@ -126,10 +126,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                 ]
                                ]
       office_text[2].should == [:text__list,
-                                {
-                                  :text__continue_numbering => "true",
-                                  :text__style_name => "Numbering_20_1",
-                                },
+                                {:text__style_name => "Numbering_20_1"},
                                 [:text__list_item,
                                  [:text__p,
                                   {:text__style_name => "Text_20_body"},
