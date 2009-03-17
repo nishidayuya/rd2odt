@@ -455,14 +455,7 @@ module RD2ODT
       (1) dara
 =end
     def apply_to_list_item(sub_contents)
-      result = []
-      result << :text__list_item
-      if across_headline
-        self.across_headline = false
-        # result << {:text__start_value => "1"}
-      end
-      result.concat(sub_contents)
-      return result
+      return [:text__list_item, *sub_contents]
     end
     private :apply_to_list_item
 
