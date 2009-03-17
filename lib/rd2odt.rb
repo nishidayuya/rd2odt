@@ -265,6 +265,9 @@ module RD2ODT
     # included OLE objects
     attr_accessor :inner_objects
 
+    # 
+    attr_accessor :across_headline
+
     def initialize(*args)
       super
 
@@ -399,6 +402,7 @@ module RD2ODT
     private :create_headline_result
 
     def apply_to_Headline(element, title)
+      self.across_headline = true
       level = element.level
       result = create_headline_result(title, level, level)
       result[1][:text__style_name] = "Numbering_20_2"
@@ -432,8 +436,23 @@ module RD2ODT
       return apply_to_list_item(sub_contents)
     end
 
+=begin
+以下のときにbazは番号付け再開されない．
+  (1) foo
+  
+  == bar
+  
+  (1) baz
+      (1) dara
+=end
     def apply_to_list_item(sub_contents)
-      return [:text__list_item, *sub_contents]
+      additional_attributes = {}
+      if across_headline
+        self.across_headline = false
+        additional_attributes[:text__start_value] = "1"
+      end
+
+      return [:text__list_item, additional_attributes, *sub_contents]
     end
     private :apply_to_list_item
 
