@@ -268,6 +268,9 @@ module RD2ODT
     # 
     attr_accessor :across_item_list
 
+    # 
+    attr_accessor :list_stack
+
     def initialize(*args)
       super
 
@@ -275,6 +278,7 @@ module RD2ODT
       self.additional_styles = []
       self.automatic_styles = []
       self.inner_objects = []
+      self.list_stack = []
     end
 
     def apply_to_DocumentElement(element, sub_content)
@@ -413,12 +417,37 @@ module RD2ODT
       return result
     end
 
+=begin
+    [:enum, :item].each do |s|
+      define_method("visit_#{s.to_s.capitalize}List") do |*args|
+        super
+      end
+    end
+=end
+    def visit_EnumList(*args)
+      list_stack.push(:enum)
+      result = super
+      list_stack.pop
+      return result
+    end
+
+    def visit_ItemList(*args)
+      list_stack.push(:item)
+      result = super
+      list_stack.pop
+      return result
+    end
+
     def apply_to_EnumList(element, items)
       additional_attributes = {:text__style_name => "Numbering_20_1"}
       if across_item_list
         self.across_item_list = false
       else
-        additional_attributes[:text__continue_numbering] = "true"
+        if list_stack[-2] == :item
+          additional_attributes[:text__continue_numbering] = "false"
+        else
+          additional_attributes[:text__continue_numbering] = "true"
+        end
       end
       return apply_to_list(items, additional_attributes)
     end
