@@ -431,6 +431,9 @@ module RD2ODT
       additional_attributes = {:text__style_name => "Numbering_20_1"}
       if across_item_list
         self.across_item_list = false
+        if list_stack[-2] == :item
+          additional_attributes[:text__continue_numbering] = "false"
+        end
       else
         if list_stack[-2] == :item
           additional_attributes[:text__continue_numbering] = "false"
