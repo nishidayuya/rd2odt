@@ -417,25 +417,14 @@ module RD2ODT
       return result
     end
 
-=begin
     [:enum, :item].each do |s|
-      define_method("visit_#{s.to_s.capitalize}List") do |*args|
-        super
+      method_name = "visit_#{s.to_s.capitalize}List"
+      define_method(method_name) do |*args|
+        list_stack.push(s)
+        result = super
+        list_stack.pop
+        return result
       end
-    end
-=end
-    def visit_EnumList(*args)
-      list_stack.push(:enum)
-      result = super
-      list_stack.pop
-      return result
-    end
-
-    def visit_ItemList(*args)
-      list_stack.push(:item)
-      result = super
-      list_stack.pop
-      return result
     end
 
     def apply_to_EnumList(element, items)
