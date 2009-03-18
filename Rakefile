@@ -13,6 +13,8 @@ task :init_gem_spec do
   spec = Gem::Specification.new do |s|
     s.authors = "yuya"
     s.email = "yuyaAT@ATj96DOT.DOTorg"
+    s.rubyforge_project = "rd2odt"
+    s.homepage = "http://rubyforge.org/projects/rd2odt/"
     s.platform = Gem::Platform::RUBY
     s.required_ruby_version = ">= 1.8.6"
     s.summary = "RD(Ruby Document) to OpenDocument converter."
@@ -20,7 +22,9 @@ task :init_gem_spec do
     s.version = "0.0.0"
     s.requirements << "rubyzip"
     s.require_path = "lib"
-    s.autorequire = "rake"
+    # s.autorequire = "rake"
+    # s.has_rdoc = true
+    # s.extra_rdoc_files = ["README"]
     s.executable = "rd2odt"
     s.files = FileList["bin/rd2odt",
                        "lib/**/*.rb",
