@@ -266,7 +266,7 @@ module RD2ODT
     attr_accessor :inner_objects
 
     # 
-    attr_accessor :across_item_list
+    attr_accessor :list_stack
 
     def initialize(*args)
       super
@@ -275,6 +275,7 @@ module RD2ODT
       self.additional_styles = []
       self.automatic_styles = []
       self.inner_objects = []
+      self.list_stack = []
     end
 
     def apply_to_DocumentElement(element, sub_content)
@@ -402,7 +403,6 @@ module RD2ODT
     private :create_headline_result
 
     def apply_to_Headline(element, title)
-      self.across_item_list = true
       level = element.level
       result = create_headline_result(title, level, level)
       result[1][:text__style_name] = "Numbering_20_2"
@@ -413,18 +413,23 @@ module RD2ODT
       return result
     end
 
-    def apply_to_EnumList(element, items)
-      additional_attributes = {:text__style_name => "Numbering_20_1"}
-      if across_item_list
-        self.across_item_list = false
-      else
-        additional_attributes[:text__continue_numbering] = "true"
+    [:enum, :item].each do |s|
+      method_name = "visit_#{s.to_s.capitalize}List"
+      define_method(method_name) do |*args|
+        list_stack.push(s)
+        result = super
+        list_stack.pop
+        return result
       end
-      return apply_to_list(items, additional_attributes)
+    end
+
+    def apply_to_EnumList(element, items)
+      return apply_to_list(items,
+                           :text__style_name => "Numbering_20_1",
+                           :text__continue_numbering => "false")
     end
 
     def apply_to_ItemList(element, items)
-      self.across_item_list = true
       return apply_to_list(items, :text__style_name => "List_20_1")
     end
 

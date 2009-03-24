@@ -106,7 +106,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -134,7 +134,10 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                 ]
                                ]
       office_text[2].should == [:text__list,
-                                {:text__style_name => "Numbering_20_1"},
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
                                 [:text__list_item,
                                  [:text__p,
                                   {:text__style_name => "Text_20_body"},
@@ -145,12 +148,72 @@ describe RD2ODT::RD2ODTVisitor, "" do
     end
   end
 
+  it "supports EnumList over Headline multi-level." do
+    filename = "enum-list-over-headline-multi-level.rd"
+    result = @visitor.visit(create_rd_tree(filename))
+    check_document_content(result) do |office_text|
+      office_text[0].should == [:text__list,
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                ]
+                               ]
+      office_text[1].should == [:text__list,
+                                {
+                                  :text__style_name => "Numbering_20_2",
+                                  :text__continue_numbering => "true",
+                                },
+                                [:text__list_item,
+                                 [:text__list,
+                                  {:text__continue_numbering => "true"},
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Heading_20_2"},
+                                    "Headline 2",
+                                   ]
+                                  ]
+                                 ],
+                                ]
+                               ]
+      office_text[2].should == [:text__list,
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                 [:text__list,
+                                  {
+                                    :text__style_name => "Numbering_20_1",
+                                    :text__continue_numbering => "false",
+                                  },
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Text_20_body"},
+                                    "EnumList 1-1",
+                                   ],
+                                  ],
+                                 ],
+                                ],
+                               ]
+    end
+  end
+
   it "supports EnumList over ItemList." do
     result = @visitor.visit(create_rd_tree("enum-list-over-item-list.rd"))
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -170,11 +233,127 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                 ]
                                ]
       office_text[2].should == [:text__list,
-                                {:text__style_name => "Numbering_20_1"},
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
                                 [:text__list_item,
                                  [:text__p,
                                   {:text__style_name => "Text_20_body"},
                                   "EnumList 1",
+                                 ],
+                                ]
+                               ]
+    end
+  end
+
+  it "supports multi-level EnumList over ItemList." do
+    filename = "enum-list-over-item-list-multi-level.rd"
+    result = @visitor.visit(create_rd_tree(filename))
+    check_document_content(result) do |office_text|
+      office_text[0].should == [:text__list,
+                                {
+                                  :text__continue_numbering => "false",
+                                  :text__style_name => "Numbering_20_1",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                 [:text__list,
+                                  {
+                                    :text__continue_numbering => "false",
+                                    :text__style_name => "Numbering_20_1",
+                                  },
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Text_20_body"},
+                                    "EnumList 1-1",
+                                   ],
+                                  ],
+                                 ],
+                                ]
+                               ]
+      office_text[1].should == [:text__list,
+                                {:text__style_name => "List_20_1"},
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "ItemList *1",
+                                 ],
+                                 [:text__list,
+                                  {
+                                    :text__style_name => "Numbering_20_1",
+                                    :text__continue_numbering => "false",
+                                  },
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Text_20_body"},
+                                    "EnumList *1-1",
+                                   ],
+                                  ],
+                                 ],
+                                ]
+                               ]
+    end
+  end
+
+  it "supports multi-level EnumList over ItemList." do
+    filename = "enum-list-over-item-list-multi-level-2.rd"
+    result = @visitor.visit(create_rd_tree(filename))
+    check_document_content(result) do |office_text|
+      office_text[0].should == [:text__list,
+                                {
+                                  :text__continue_numbering => "false",
+                                  :text__style_name => "Numbering_20_1",
+                                },
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "EnumList 1",
+                                 ],
+                                 [:text__list,
+                                  {
+                                    :text__continue_numbering => "false",
+                                    :text__style_name => "Numbering_20_1",
+                                  },
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Text_20_body"},
+                                    "EnumList 1-1",
+                                   ],
+                                  ],
+                                 ],
+                                ]
+                               ]
+      office_text[1].should == [:text__list,
+                                {:text__style_name => "List_20_1"},
+                                [:text__list_item,
+                                 [:text__p,
+                                  {:text__style_name => "Text_20_body"},
+                                  "ItemList *1",
+                                 ],
+                                 [:text__list,
+                                  {
+                                    :text__style_name => "Numbering_20_1",
+                                    :text__continue_numbering => "false",
+                                  },
+                                  [:text__list_item,
+                                   [:text__p,
+                                    {:text__style_name => "Text_20_body"},
+                                    "EnumList *1-1",
+                                   ],
+                                   [:text__list,
+                                    {:text__style_name => "List_20_1"},
+                                    [:text__list_item,
+                                     [:text__p,
+                                      {:text__style_name => "Text_20_body"},
+                                      "ItemList *1-1-*1",
+                                     ],
+                                    ],
+                                   ],
+                                  ],
                                  ],
                                 ]
                                ]
