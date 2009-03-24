@@ -427,18 +427,9 @@ module RD2ODT
     end
 
     def apply_to_EnumList(element, items)
-      additional_attributes = {:text__style_name => "Numbering_20_1"}
-      if across_item_list
-        self.across_item_list = false
-        if list_stack[-2] == :item
-          additional_attributes[:text__continue_numbering] = "false"
-        else
-          additional_attributes[:text__continue_numbering] = "false"
-        end
-      else
-        additional_attributes[:text__continue_numbering] = "false"
-      end
-      return apply_to_list(items, additional_attributes)
+      return apply_to_list(items,
+                           :text__style_name => "Numbering_20_1",
+                           :text__continue_numbering => "false")
     end
 
     def apply_to_ItemList(element, items)
