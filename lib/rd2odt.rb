@@ -266,9 +266,6 @@ module RD2ODT
     attr_accessor :inner_objects
 
     # 
-    attr_accessor :across_item_list
-
-    # 
     attr_accessor :list_stack
 
     def initialize(*args)
@@ -433,7 +430,6 @@ module RD2ODT
     end
 
     def apply_to_ItemList(element, items)
-      self.across_item_list = true
       return apply_to_list(items, :text__style_name => "List_20_1")
     end
 
