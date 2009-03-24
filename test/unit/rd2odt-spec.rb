@@ -505,7 +505,7 @@ describe RD2ODT::RD2ODTVisitor, "apply_to_EnumList" do
     result.should == [:text__list,
                       {
                         :text__style_name => "Numbering_20_1",
-                        :text__continue_numbering => "true",
+                        :text__continue_numbering => "false",
                       },
                       :sub_content_1,
                       :sub_content_2,

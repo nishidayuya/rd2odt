@@ -406,7 +406,6 @@ module RD2ODT
     private :create_headline_result
 
     def apply_to_Headline(element, title)
-      self.across_item_list = true
       level = element.level
       result = create_headline_result(title, level, level)
       result[1][:text__style_name] = "Numbering_20_2"
@@ -433,13 +432,11 @@ module RD2ODT
         self.across_item_list = false
         if list_stack[-2] == :item
           additional_attributes[:text__continue_numbering] = "false"
+        else
+          additional_attributes[:text__continue_numbering] = "false"
         end
       else
-        if list_stack[-2] == :item
-          additional_attributes[:text__continue_numbering] = "false"
-        else
-          additional_attributes[:text__continue_numbering] = "true"
-        end
+        additional_attributes[:text__continue_numbering] = "false"
       end
       return apply_to_list(items, additional_attributes)
     end

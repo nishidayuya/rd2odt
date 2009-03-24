@@ -106,7 +106,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -134,7 +134,10 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                 ]
                                ]
       office_text[2].should == [:text__list,
-                                {:text__style_name => "Numbering_20_1"},
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
                                 [:text__list_item,
                                  [:text__p,
                                   {:text__style_name => "Text_20_body"},
@@ -150,7 +153,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -170,7 +173,10 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                 ]
                                ]
       office_text[2].should == [:text__list,
-                                {:text__style_name => "Numbering_20_1"},
+                                {
+                                  :text__style_name => "Numbering_20_1",
+                                  :text__continue_numbering => "false",
+                                },
                                 [:text__list_item,
                                  [:text__p,
                                   {:text__style_name => "Text_20_body"},
@@ -187,7 +193,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -197,7 +203,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                  ],
                                  [:text__list,
                                   {
-                                    :text__continue_numbering => "true",
+                                    :text__continue_numbering => "false",
                                     :text__style_name => "Numbering_20_1",
                                   },
                                   [:text__list_item,
@@ -239,7 +245,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
     check_document_content(result) do |office_text|
       office_text[0].should == [:text__list,
                                 {
-                                  :text__continue_numbering => "true",
+                                  :text__continue_numbering => "false",
                                   :text__style_name => "Numbering_20_1",
                                 },
                                 [:text__list_item,
@@ -249,7 +255,7 @@ describe RD2ODT::RD2ODTVisitor, "" do
                                  ],
                                  [:text__list,
                                   {
-                                    :text__continue_numbering => "true",
+                                    :text__continue_numbering => "false",
                                     :text__style_name => "Numbering_20_1",
                                   },
                                   [:text__list_item,
