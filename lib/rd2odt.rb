@@ -52,8 +52,8 @@ module RD2ODT
   end
   module_function :parse_option
 
-  def main
-    parse_option(ARGV)
+  def main(argv)
+    parse_option(argv)
 
     include_paths = [
                      File.dirname(@@input_path),
