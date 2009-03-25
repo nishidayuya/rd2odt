@@ -2,7 +2,14 @@ require "rake"
 require "rake/gempackagetask"
 require "spec/rake/spectask"
 
-task :default => [:spec, :init_gem_spec, :package]
+task :default => [:clean, :spec, :init_gem_spec, :package]
+
+desc "Clean up generated files and directories"
+task :clean do
+  rm_rf "pkg"
+  rm_rf FileList["doc/**/*.rd.odt",
+                 "doc/**/*.rd.ja.odt"]
+end
 
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["test/**/*-spec.rb"]
