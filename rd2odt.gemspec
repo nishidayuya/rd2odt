@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
                      "doc/**/[a-z]*.rd*",
                      "doc/**/*.odt",
                      "test/**/*.rb",
-                     ".gemspec",
+                     "rd2odt.gemspec",
                      "Rakefile",
                      "LICENSE",
                      "FUTURE",
