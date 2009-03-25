@@ -18,7 +18,12 @@ end
 
 desc "Build packages"
 task :init_gem_spec do
-  spec = Module.new.module_eval(File.read("rd2odt.gemspec"))
+  s = File.read("rd2odt.gemspec").untaint
+  spec = nil
+  Thread.start {
+    $SAFE = 2
+    spec = Module.new.module_eval(s)
+  }.join
   Rake::GemPackageTask.new(spec) do |pkg|
     pkg.need_zip = true
     pkg.need_tar_gz = true
