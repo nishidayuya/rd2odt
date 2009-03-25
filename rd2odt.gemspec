@@ -1,13 +1,15 @@
 Gem::Specification.new do |s|
+  s.name = "rd2odt"
+  s.version = "0.0.0"
+
   s.authors = "Yuya.Nishida."
   s.email = "yuyaAT@ATj96DOT.DOTorg"
-  s.rubyforge_project = "rd2odt"
-  s.homepage = "http://rubyforge.org/projects/rd2odt/"
+
+  s.rubyforge_project = s.name
+  s.homepage = "http://rubyforge.org/projects/#{s.name}/"
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = ">= 1.8.6"
   s.summary = "RD(Ruby Document) to OpenDocument converter."
-  s.name = "rd2odt"
-  s.version = "0.0.0"
   s.requirements << "rubyzip"
   s.require_path = "lib"
   # s.autorequire = "rake"
@@ -25,7 +27,7 @@ Gem::Specification.new do |s|
                      "FUTURE",
                      "setup.rb"]
   s.description = <<EOF
-RD2ODT is a converter for RD => OpenDocument format.
+#{s.summary}
 EOF
 end
 
