@@ -11,7 +11,7 @@ end
 
 task :init_gem_spec do
   spec = Gem::Specification.new do |s|
-    s.authors = "yuya"
+    s.authors = "Yuya.Nishida."
     s.email = "yuyaAT@ATj96DOT.DOTorg"
     s.rubyforge_project = "rd2odt"
     s.homepage = "http://rubyforge.org/projects/rd2odt/"
