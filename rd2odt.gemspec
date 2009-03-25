@@ -1,3 +1,5 @@
+require "rake"
+
 Gem::Specification.new do |s|
   s.name = "rd2odt"
   s.version = "0.0.0"
