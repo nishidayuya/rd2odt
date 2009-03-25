@@ -9,6 +9,7 @@ Spec::Rake::SpecTask.new do |t|
   t.libs << "lib"
 end
 
+desc "Build packages"
 task :init_gem_spec do
   spec = Gem::Specification.new do |s|
     s.authors = "Yuya.Nishida."
