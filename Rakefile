@@ -33,6 +33,7 @@ task :init_gem_spec do
                        "test/**/*.rb",
                        "Rakefile",
                        "LICENSE",
+                       "FUTURE",
                        "setup.rb"]
     s.description = <<EOF
 RD2ODT is a converter for RD => OpenDocument format.
