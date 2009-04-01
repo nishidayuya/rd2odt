@@ -1,14 +1,25 @@
-= version 0.1.0 2009-03-XX
+= version 0.0.1 2009-04-01
 
-== new features
+== a little features
 
 * No '=begin' no '=end' document support.
 
-* Installation by RubyGems support.
-
 == bug fixes
 
-* NO! (or not shown?)
+* Fixed the case of enum list over headline.
+  e.g.
+    (1) EnumList 1
+    
+    == Headline 2
+    
+    (1) EnumList 1
+
+* Fixed the case of enum list over item list.
+  e.g.
+    (1) EnumList 1
+        (1) EnumList 1-1
+    * ItemList *1
+      (1) EnumList *1-1
 
 = version 0.0.0 2009-02-22
 
