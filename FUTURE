@@ -31,6 +31,8 @@ PLEASE HELP ME!
 
 == About OpenDocument format
 
+* The <text:h> element with numbering support.
+  Now, <text:p> element with <text:list> element.
 * Inserts figure support as directly.
     <<< my-family.png
     (using default figure style)
