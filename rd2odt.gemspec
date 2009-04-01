@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
   s.homepage = "http://rubyforge.org/projects/#{s.name}/"
   s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = ">= 1.8.6"
+  s.required_ruby_version = ">= 1.8.7"
   s.requirements << "rubyzip"
   s.require_path = "lib"
   # s.autorequire = "rake"
