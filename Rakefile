@@ -19,6 +19,9 @@ end
 
 Rake::RDocTask.new do |t|
   t.main = "README"
+  t.title = "rd2odt"
+  t.options << "--line-numbers"
+  t.options << "--inline-source"
   t.rdoc_files.include("README")
   t.rdoc_files.include("FUTURE")
   t.rdoc_files.include("NEWS")
