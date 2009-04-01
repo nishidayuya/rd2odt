@@ -1,6 +1,7 @@
 require "rake"
 require "rake/gempackagetask"
 require "spec/rake/spectask"
+require "rake/rdoctask"
 
 task :default => [:clean, :spec, :init_gem_spec, :package]
 
@@ -14,6 +15,14 @@ end
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["test/**/*-spec.rb"]
   t.libs << "lib"
+end
+
+Rake::RDocTask.new do |t|
+  t.main = "README"
+  t.rdoc_files.include("README")
+  t.rdoc_files.include("FUTURE")
+  t.rdoc_files.include("NEWS")
+  t.rdoc_files.include("LICENSE")
 end
 
 desc "Build packages"
