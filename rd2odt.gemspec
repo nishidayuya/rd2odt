@@ -21,19 +21,37 @@ Gem::Specification.new do |s|
 #{s.summary}
 EOF
 
-  file_globs = ["bin/rd2odt",
-                "lib/**/*.rb",
-                "doc/**/[a-z]*.rd*",
-                "doc/**/*.odt",
-                "test/**/*.rb",
-                "rd2odt.gemspec",
-                "Rakefile",
-                "LICENSE",
-                "FUTURE",
-                "setup.rb"]
-  s.files = file_globs.map { |x|
-    Dir.glob(x)
-  }.flatten
+  s.files = ["bin/rd2odt",
+
+             # "lib/**/*.rb",
+             "lib/rd2odt.rb",
+
+             # "doc/**/[a-z]*.rd*",
+             "doc/sample.rd.ja",
+             "doc/sample.rd.ja.ott",
+             "doc/sample.rd.ja.pdf",
+             "doc/sample/body-text.rd",
+             "doc/sample/enum-list-over-headline-multi-level.rd",
+             "doc/sample/enum-list-over-headline.rd",
+             "doc/sample/enum-list-over-item-list-multi-level-2.rd",
+             "doc/sample/enum-list-over-item-list-multi-level.rd",
+             "doc/sample/enum-list-over-item-list.rd",
+             "doc/sample/headline.rd",
+             "doc/sample/include.rd",
+             "doc/sample/list.rd",
+             "doc/sample/multi-paragraph.rd",
+             "doc/sample/verbatim.rd",
+             "doc/specification.ja.rd",
+
+             # "test/**/*.rb",
+             "test/functional/rd2odt-spec.rb",
+             "test/test-helper.rb",
+             "test/unit/rd2odt-spec.rb",
+             "rd2odt.gemspec",
+             "Rakefile",
+             "LICENSE",
+             "FUTURE",
+             "setup.rb"]
 end
 
 # Editor settings
