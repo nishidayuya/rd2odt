@@ -43,6 +43,16 @@ EOF
              "doc/sample/verbatim.rd",
              "doc/specification.ja.rd",
 
+             # "doc/**/*.odt"
+             "doc/sample/include-file-figure.odt",
+             "doc/sample/include-file-ole-object.odt",
+             "doc/sample/include-file-original-styled-text.odt",
+             "doc/sample/include-file-shape.odt",
+             "doc/sample/include-file-simple-styled-text.odt",
+             "doc/sample/include-file-simple-text.odt",
+             "doc/sample/include-file-table.odt",
+             "doc/sample/page-break.odt",
+
              # "test/**/*.rb",
              "test/functional/rd2odt-spec.rb",
              "test/test-helper.rb",
