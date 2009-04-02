@@ -49,8 +49,10 @@ EOF
              "test/unit/rd2odt-spec.rb",
              "rd2odt.gemspec",
              "Rakefile",
-             "LICENSE",
+             "README",
              "FUTURE",
+             "NEWS",
+             "LICENSE",
              "setup.rb"]
 end
 
