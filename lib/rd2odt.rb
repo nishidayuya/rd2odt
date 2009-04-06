@@ -5,10 +5,17 @@ require "optparse"
 require "find"
 require "tmpdir"
 require "cgi"
-require "rd/rdvisitor"
-require "rd/rdfmt"
 require "rexml/document"
-require "zip/zip"
+begin
+  require "rd/rdvisitor"
+  require "rd/rdfmt"
+  require "zip/zip"
+rescue LoadError
+  require "rubygems"
+  require "rd/rdvisitor"
+  require "rd/rdfmt"
+  require "zip/zip"
+end
 
 module RD2ODT
   @@options = {
