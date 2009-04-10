@@ -15,6 +15,7 @@ end
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["test/**/*-spec.rb"]
   t.libs << "lib"
+  t.spec_opts << "--colour"
 end
 
 Rake::RDocTask.new do |t|
