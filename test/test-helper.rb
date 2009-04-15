@@ -80,3 +80,14 @@ EOF
     return BeSameAsThisXml.new(expected)
   end
 end
+
+# for test on Ruby 1.8.6.
+if RUBY_VERSION < "1.8.7"
+  class Hash
+    def each
+      keys.sort.each do |k|
+        yield(k, self[k])
+      end
+    end
+  end
+end
