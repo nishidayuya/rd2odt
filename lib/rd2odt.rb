@@ -272,9 +272,6 @@ module RD2ODT
     # included OLE objects
     attr_accessor :inner_objects
 
-    # 
-    attr_accessor :list_stack
-
     def initialize(*args)
       super
 
@@ -282,7 +279,6 @@ module RD2ODT
       self.additional_styles = []
       self.automatic_styles = []
       self.inner_objects = []
-      self.list_stack = []
     end
 
     def apply_to_DocumentElement(element, sub_content)
@@ -418,16 +414,6 @@ module RD2ODT
       end
       self.continue_numbering_headline = true
       return result
-    end
-
-    [:enum, :item].each do |s|
-      method_name = "visit_#{s.to_s.capitalize}List"
-      define_method(method_name) do |*args|
-        list_stack.push(s)
-        result = super
-        list_stack.pop
-        return result
-      end
     end
 
     def apply_to_EnumList(element, items)
