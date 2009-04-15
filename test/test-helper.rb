@@ -3,7 +3,7 @@
 $top_srcdir = File.join(File.dirname(__FILE__), "..")
 $LOAD_PATH << File.join($top_srcdir, "lib")
 
-$KCODE = "u" if RUBY_VERSION < "1.8.9"
+$KCODE = "u" if RUBY_VERSION < "1.9.0"
 
 require "rd2odt"
 require "tempfile"
