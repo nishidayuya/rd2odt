@@ -572,7 +572,7 @@ end
 
 describe RD2ODT::RD2ODTVisitor, "apply_to_Include" do
   before do
-    class Time
+    class ::Time
       class << self
         alias orig_now now
 
@@ -593,7 +593,7 @@ describe RD2ODT::RD2ODTVisitor, "apply_to_Include" do
   end
 
   after do
-    class Time
+    class ::Time
       class << self
         alias now orig_now
       end
