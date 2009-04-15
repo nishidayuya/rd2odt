@@ -571,6 +571,8 @@ describe RD2ODT::RD2ODTVisitor, "apply_to_Verbatim" do
 end
 
 describe RD2ODT::RD2ODTVisitor, "apply_to_Include" do
+  include XmlMatchers
+
   before do
     class ::Time
       class << self
@@ -616,10 +618,10 @@ EOF
     result.length.should == 3
     result.class.should == Array
     @visitor.number_of_include_files.should == 1
-    @visitor.additional_styles[0].to_s.should == <<EOF.chomp
+    @visitor.additional_styles[0].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}Standard' style:class='text' style:family='paragraph'/>
 EOF
-    @visitor.additional_styles[1].to_s.should == <<EOF.chomp
+    @visitor.additional_styles[1].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}Text_20_body' style:class='text' style:parent-style-name='#{@name_prefix}Standard' style:display-name='#{@name_prefix}Text body' style:family='paragraph'>
    <style:paragraph-properties fo:margin-bottom='0.212cm' fo:margin-top='0cm'/>
   </style:style>
@@ -688,7 +690,7 @@ EOF
     result[0].should == <<EOF.chomp.to_sym
 <text:p text:style-name='#{@name_prefix}Standard'>これは&lt;&lt;&lt;のサンプルです．</text:p>
 EOF
-    result[1].should == <<EOF.chomp.to_sym
+    result[1].should be_same_as_this_xml(<<EOF.chomp.to_sym)
 <table:table table:name='#{@name_prefix}表1' table:style-name='#{@name_prefix}表1'>
     <table:table-column table:number-columns-repeated='3' table:style-name='#{@name_prefix}表1.A'/>
     <table:table-row>
@@ -720,12 +722,12 @@ EOF
 EOF
     result.length.should == 3
     result.class.should == Array
-    @visitor.automatic_styles[0].to_s.should == <<EOF.chomp
+    @visitor.automatic_styles[0].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}表1' style:family='table'>
    <style:table-properties table:align='margins' style:width='16.999cm'/>
   </style:style>
 EOF
-    @visitor.automatic_styles[1].to_s.should == <<EOF.chomp
+    @visitor.automatic_styles[1].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}表1.A' style:family='table-column'>
    <style:table-column-properties style:column-width='5.666cm' style:rel-column-width='21845*'/>
   </style:style>
@@ -742,7 +744,7 @@ EOF
     result[0].should == <<EOF.chomp.to_sym
 <text:p text:style-name='#{@name_prefix}Standard'>これは&lt;&lt;&lt;のサンプルです．</text:p>
 EOF
-    result[1].should == <<EOF.chomp.to_sym
+    result[1].should be_same_as_this_xml(<<EOF.chomp.to_sym)
 <text:p text:style-name='#{@name_prefix}Standard'><draw:g text:anchor-type='paragraph' draw:z-index='0' draw:style-name='#{@name_prefix}gr1'><draw:custom-shape svg:x='3.348cm' svg:y='0.088cm' svg:height='3.911cm' draw:style-name='#{@name_prefix}gr2' svg:width='3.887cm'>
       <text:p/>
       <draw:enhanced-geometry draw:glue-points='10800 0 3160 3160 0 10800 3160 18440 10800 21600 18440 18440 21600 10800 18440 3160' draw:type='smiley' draw:enhanced-path='U 10800 10800 10800 10800 0 23592960 Z N U 7305 7515 1165 1165 0 23592960 Z N U 14295 7515 1165 1165 0 23592960 Z N M 4870 ?f1 C 8680 ?f2 12920 ?f2 16730 ?f1 F N' draw:modifiers='17520' draw:text-areas='3200 3200 18400 18400' svg:viewBox='0 0 21600 21600'>
@@ -807,17 +809,17 @@ EOF
 EOF
     result.length.should == 3
     result.class.should == Array
-    @visitor.automatic_styles[0].to_s.should == <<EOF.chomp
+    @visitor.automatic_styles[0].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}P1' style:family='paragraph'>
    <style:paragraph-properties fo:text-align='center'/>
   </style:style>
 EOF
-    @visitor.automatic_styles[1].to_s.should == <<EOF.chomp
+    @visitor.automatic_styles[1].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}gr1' style:family='graphic'>
    <style:graphic-properties style:flow-with-text='false' style:horizontal-pos='from-left' style:wrap='none' style:vertical-rel='paragraph' draw:wrap-influence-on-position='once-concurrent' style:horizontal-rel='paragraph' style:run-through='foreground' style:vertical-pos='from-top'/>
   </style:style>
 EOF
-    @visitor.automatic_styles[2].to_s.should == <<EOF.chomp
+    @visitor.automatic_styles[2].to_s.should be_same_as_this_xml(<<EOF.chomp)
 <style:style style:name='#{@name_prefix}gr2' style:family='graphic'>
    <style:graphic-properties draw:textarea-vertical-align='middle' draw:auto-grow-height='false' style:run-through='foreground' draw:textarea-horizontal-align='justify'/>
   </style:style>
