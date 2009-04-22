@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "rd2odt"
-  s.version = "0.0.1.20090403.01"
+  s.version = "0.0.1.20090422.01"
 
   s.authors = "Yuya.Nishida."
   s.email = "yuyaAT@ATj96DOT.DOTorg"
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.8.7"
   s.rubygems_version = ">= 1.3.0"
   s.requirements << "rubyzip"
-  s.require_path = "lib"
+  s.require_paths = ["lib", "lib/rd2odt/rdtool"]
   # s.autorequire = "rake"
   # s.has_rdoc = true
   # s.extra_rdoc_files = ["README"]
@@ -26,6 +26,37 @@ EOF
 
              # "lib/**/*.rb",
              "lib/rd2odt.rb",
+             "lib/rd2odt/rdtool/rd/block-element.rb",
+             "lib/rd2odt/rdtool/rd/complex-list-item.rb",
+             "lib/rd2odt/rdtool/rd/desclist.rb",
+             "lib/rd2odt/rdtool/rd/document-struct.rb",
+             "lib/rd2odt/rdtool/rd/element.rb",
+             "lib/rd2odt/rdtool/rd/filter.rb",
+             "lib/rd2odt/rdtool/rd/inline-element.rb",
+             "lib/rd2odt/rdtool/rd/labeled-element.rb",
+             "lib/rd2odt/rdtool/rd/list.rb",
+             "lib/rd2odt/rdtool/rd/loose-struct.rb",
+             "lib/rd2odt/rdtool/rd/methodlist.rb",
+             "lib/rd2odt/rdtool/rd/output-format-visitor.rb",
+             "lib/rd2odt/rdtool/rd/package.rb",
+             "lib/rd2odt/rdtool/rd/parser-util.rb",
+             "lib/rd2odt/rdtool/rd/rbl-file.rb",
+             "lib/rd2odt/rdtool/rd/rbl-suite.rb",
+             "lib/rd2odt/rdtool/rd/rd-struct.rb",
+             "lib/rd2odt/rdtool/rd/rd2html-lib.rb",
+             "lib/rd2odt/rdtool/rd/rd2html-opt.rb",
+             "lib/rd2odt/rdtool/rd/rd2man-lib.rb",
+             "lib/rd2odt/rdtool/rd/rd2rdo-lib.rb",
+             "lib/rd2odt/rdtool/rd/rd2rmi-lib.rb",
+             "lib/rd2odt/rdtool/rd/rdblockparser.tab.rb",
+             "lib/rd2odt/rdtool/rd/rdfmt.rb",
+             "lib/rd2odt/rdtool/rd/rdinlineparser.tab.rb",
+             "lib/rd2odt/rdtool/rd/rdvisitor.rb",
+             "lib/rd2odt/rdtool/rd/reference-resolver.rb",
+             "lib/rd2odt/rdtool/rd/search-file.rb",
+             "lib/rd2odt/rdtool/rd/tree.rb",
+             "lib/rd2odt/rdtool/rd/version.rb",
+             "lib/rd2odt/rdtool/rd/visitor.rb",
 
              # "doc/**/[a-z]*.rd*",
              "doc/sample.rd.ja",

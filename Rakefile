@@ -15,6 +15,7 @@ end
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["test/**/*-spec.rb"]
   t.libs << "lib"
+  t.libs << "lib/rd2odt/rdtool"
   t.spec_opts << "--colour"
 end
 
