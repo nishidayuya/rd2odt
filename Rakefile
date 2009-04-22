@@ -34,7 +34,7 @@ task :init_gem_spec do
   s = File.read("rd2odt.gemspec").untaint
   spec = nil
   Thread.start {
-    $SAFE = 2
+    $SAFE = 3
     spec = Module.new.module_eval(s)
   }.join
   Rake::GemPackageTask.new(spec) do |pkg|
