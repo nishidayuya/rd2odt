@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "rd2odt"
-  s.version = "0.0.1.20090422.01"
+  s.version = "0.1.0"
 
   s.authors = "Yuya.Nishida."
   s.email = "yuyaAT@ATj96DOT.DOTorg"
