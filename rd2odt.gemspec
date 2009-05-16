@@ -26,6 +26,9 @@ EOF
 
              # "lib/**/*.rb",
              "lib/rd2odt.rb",
+             "lib/rd2odt/rdtool/NOTICE.rd2odt",
+             "lib/rd2odt/rdtool/README.rd",
+             "lib/rd2odt/rdtool/README.rd.ja",
              "lib/rd2odt/rdtool/rd/block-element.rb",
              "lib/rd2odt/rdtool/rd/complex-list-item.rb",
              "lib/rd2odt/rdtool/rd/desclist.rb",
