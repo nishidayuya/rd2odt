@@ -3,6 +3,7 @@
 == a feature
 
 * Distributed under the RubyGems package.
+  * rd2odt includes RDtool.
 
 = version 0.0.1 2009-04-01
 
