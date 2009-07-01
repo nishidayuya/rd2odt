@@ -17,6 +17,8 @@ rescue LoadError
   require "zip/zip"
 end
 
+require "rd2odt/compat/ruby-1.8.6" if RUBY_VERSION < "1.8.7"
+
 module RD2ODT
   @@options = {
     :backtrace => false,

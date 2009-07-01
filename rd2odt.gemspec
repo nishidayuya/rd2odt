@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
   s.homepage = "http://rubyforge.org/projects/#{s.name}/"
   s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = ">= 1.8.7"
+  s.required_ruby_version = ">= 1.8.6"
   s.rubygems_version = ">= 1.3.0"
   s.requirements << "rubyzip"
   s.require_paths = ["lib", "lib/rd2odt/rdtool"]
@@ -26,6 +26,7 @@ EOF
 
              # "lib/**/*.rb",
              "lib/rd2odt.rb",
+             "lib/rd2odt/compat/ruby-1.8.6.rb",
              "lib/rd2odt/rdtool/NOTICE.rd2odt",
              "lib/rd2odt/rdtool/README.rd",
              "lib/rd2odt/rdtool/README.rd.ja",
