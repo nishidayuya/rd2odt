@@ -65,7 +65,6 @@ EOF
              # "doc/**/[a-z]*.rd*",
              "doc/sample.rd.ja",
              "doc/sample.rd.ja.ott",
-             "doc/sample.rd.ja.pdf",
              "doc/sample/body-text.rd",
              "doc/sample/enum-list-over-headline-multi-level.rd",
              "doc/sample/enum-list-over-headline.rd",
