@@ -6,16 +6,9 @@ require "find"
 require "tmpdir"
 require "cgi"
 require "rexml/document"
-begin
-  require "rd/rdvisitor"
-  require "rd/rdfmt"
-  require "zip/zip"
-rescue LoadError
-  require "rubygems"
-  require "rd/rdvisitor"
-  require "rd/rdfmt"
-  require "zip/zip"
-end
+require "rd/rdvisitor"
+require "rd/rdfmt"
+require "zip/zip"
 
 require "rd2odt/compat/ruby-1.8.6" if RUBY_VERSION < "1.8.7"
 

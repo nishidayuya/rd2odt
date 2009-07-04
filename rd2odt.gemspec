@@ -97,8 +97,7 @@ EOF
              "README",
              "FUTURE",
              "NEWS",
-             "LICENSE",
-             "setup.rb"]
+             "LICENSE"]
 end
 
 # Editor settings
