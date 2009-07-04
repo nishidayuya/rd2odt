@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = ">= 1.8.6"
   s.rubygems_version = ">= 1.3.0"
-  s.requirements << "rubyzip"
+  s.add_dependency("rubyzip", "= 0.9.1")
   s.require_paths = ["lib", "lib/rd2odt/rdtool"]
   # s.autorequire = "rake"
   # s.has_rdoc = true

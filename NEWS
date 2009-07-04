@@ -1,3 +1,9 @@
+= version 0.1.2 2009-XX-XX
+
+== bug fixes
+
+* Fixed RubyGem dependency (rubyzip).
+
 = version 0.1.1 2009-07-01
 
 == a little feature
