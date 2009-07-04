@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.email = "yuyaAT@ATj96DOT.DOTorg"
 
   s.rubyforge_project = s.name
-  s.homepage = "http://rubyforge.org/projects/#{s.name}/"
+  s.homepage = "http://github.com/nishidayuya/#{s.name}/"
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = ">= 1.8.6"
   s.rubygems_version = ">= 1.3.0"
