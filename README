@@ -4,28 +4,8 @@ rd2odt is a converter for RD (Ruby Document) to OpenDocument.
 
 = Install
 
-== Requirements
-
-* The Ruby interpreter :>
-  http://www.ruby-lang.org/
-* RDtool
-  http://rubyforge.org/projects/rdtool/
-* rubyzip
-  http://rubyforge.org/projects/rubyzip/
-  If you have RubyGems, you can install rubyzip with RubyGems:
-    % (sudo) gem install rubyzip
-
-Do you have Debian/GNU Linux?
-These are installable with APT!
-  % (sudo) apt-get install rdtool libzip-ruby1.8
-
-== Install rd2odt
-
-(1) Download newest tarballs and extract it.
-    http://rubyforge.org/projects/rd2odt/
-(2) Run setup.rb and install it.
-      % cd rd2odt-<version number>
-      % (sudo) ruby setup.rb
+You can use RubyGems for installing rd2odt.
+  % (sudo) gem install rd2odt
 
 = Tutorials
 
