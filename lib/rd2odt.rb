@@ -530,7 +530,7 @@ module RD2ODT
 
     def create_name_prefix
       t = Time.now
-      return sprintf("rd2odt:%d:%06d:%d:",
+      return sprintf("rd2odt-%d-%06d-%d-",
                      t.tv_sec, t.tv_usec, number_of_include_files)
     end
     private :create_name_prefix

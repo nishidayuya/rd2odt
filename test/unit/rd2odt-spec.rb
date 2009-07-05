@@ -584,7 +584,7 @@ describe RD2ODT::RD2ODTVisitor, "apply_to_Include" do
       end
     end
 
-    @name_prefix = sprintf("rd2odt:%d:%06d:%d:",
+    @name_prefix = sprintf("rd2odt-%d-%06d-%d-",
                            Time.now.tv_sec, Time.now.tv_usec, 1)
 
     @visitor = RD2ODT::RD2ODTVisitor.new
