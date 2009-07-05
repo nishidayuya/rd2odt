@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+require "rd2odt/compat/ruby-1.8.6" if RUBY_VERSION < "1.8.7"
+require "rd2odt/compat/ruby-1.9.x" if RUBY_VERSION >= "1.9.0"
+
 require "pp"
 require "optparse"
 require "find"
@@ -9,8 +12,6 @@ require "rexml/document"
 require "rd/rdvisitor"
 require "rd/rdfmt"
 require "zip/zip"
-
-require "rd2odt/compat/ruby-1.8.6" if RUBY_VERSION < "1.8.7"
 
 module RD2ODT
   @@options = {

@@ -1,5 +1,11 @@
 = version 0.1.2 2009-XX-XX
 
+== a little feature
+
+* Supported RubyZip 0.9.1 on Ruby 1.9.1 without
+  rubyzip-0.9.1-for-ruby1.9.1.patch.
+  http://sourceforge.net/tracker/?func=detail&aid=2731184&group_id=43107&atid=435172
+
 == bug fixes
 
 * Fixed RubyGem dependency (rubyzip).

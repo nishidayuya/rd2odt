@@ -27,6 +27,8 @@ EOF
              # "lib/**/*.rb",
              "lib/rd2odt.rb",
              "lib/rd2odt/compat/ruby-1.8.6.rb",
+             "lib/rd2odt/compat/ruby-1.9.x.rb",
+             "lib/rd2odt/compat/ruby-1.9.x/ftools.rb",
              "lib/rd2odt/rdtool/NOTICE.rd2odt",
              "lib/rd2odt/rdtool/README.rd",
              "lib/rd2odt/rdtool/README.rd.ja",
