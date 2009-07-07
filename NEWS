@@ -1,4 +1,11 @@
-= version 0.1.2 2009-XX-XX
+= version 0.2.0 2009-XX-XX
+
+== a feature
+
+* Supported RD's term description.
+  e.g.
+    : term
+      descriptipn
 
 == a little feature
 

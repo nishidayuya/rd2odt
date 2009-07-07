@@ -25,10 +25,6 @@ PLEASE HELP ME!
     ((<label>))
     (('verbatim'))
 
-* term description
-    : term
-      description
-
 == About OpenDocument format
 
 * The <text:h> element with numbering support.

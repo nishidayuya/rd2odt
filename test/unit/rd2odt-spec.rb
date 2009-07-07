@@ -545,6 +545,60 @@ describe RD2ODT::RD2ODTVisitor, "apply_to_ItemList" do
   end
 end
 
+describe RD2ODT::RD2ODTVisitor, "apply_to_DescListItem" do
+  before do
+    @visitor = RD2ODT::RD2ODTVisitor.new
+  end
+
+  it "returns text:p elements which is formatted" do
+    #dli = RD::DescListItem.new
+    #dli.term = RD::DescListItem::Term.new
+    descriptions = [[:text__p,
+                     {:text__style_name=>"Text_20_body"},
+                     "用語定義内容1"],
+                    [:text__p,
+                     {:text__style_name=>"Text_20_body"},
+                     "用語定義内容2"]]
+    result = @visitor.apply_to_DescListItem(nil,
+                                            ["用語定義見出し"],
+                                            descriptions)
+    result[0].should == [:text__p,
+                         {:text__style_name=>"List_20_Heading"},
+                         "用語定義見出し"]
+    result[1].should == [:text__p,
+                         {:text__style_name=>"List_20_Contents"},
+                         "用語定義内容1"]
+    result[2].should == [:text__p,
+                         {:text__style_name=>"List_20_Contents"},
+                         "用語定義内容2"]
+    result.length.should == 3
+    result.class.should == Array
+  end
+end
+
+describe RD2ODT::RD2ODTVisitor, "apply_to_DescList" do
+  before do
+    @visitor = RD2ODT::RD2ODTVisitor.new
+  end
+
+  it "returns expanded text:p elements" do
+    items = 
+      [[[:text__p, {:text__style_name=>"List_20_Heading"}, "見出し1"],
+        [:text__p, {:text__style_name=>"List_20_Contents"}, "内容1-1"],
+        [:text__p, {:text__style_name=>"List_20_Contents"}, "内容1-2"]],
+       [[:text__p, {:text__style_name=>"List_20_Heading"}, "見出し2"],
+        [:text__p, {:text__style_name=>"List_20_Contents"}, "内容2-1"]]]
+    result = @visitor.apply_to_DescList(nil, items)
+    result[0].should == items[0][0]
+    result[1].should == items[0][1]
+    result[2].should == items[0][2]
+    result[3].should == items[1][0]
+    result[4].should == items[1][1]
+    result.length.should == 5
+    result.class.should == Array
+  end
+end
+
 describe RD2ODT::RD2ODTVisitor, "apply_to_Verbatim" do
   before do
     @visitor = RD2ODT::RD2ODTVisitor.new

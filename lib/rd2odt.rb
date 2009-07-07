@@ -440,6 +440,20 @@ module RD2ODT
     end
     private :apply_to_list_item
 
+    def apply_to_DescListItem(element, term, description)
+      heading = [:text__p, {:text__style_name=>"List_20_Heading"}, term.to_s]
+      content = description.map { |d|
+        [:text__p, {:text__style_name=>"List_20_Contents"}, d.last]
+      }
+      return [heading, *content]
+    end
+
+    def apply_to_DescList(element, items)
+      return items.inject([]) { |result, item|
+        result.push(*item)
+      }
+    end
+
     def apply_to_Verbatim(element)
       lines = element.content.map { |line|
         escape_text(line.chomp)
